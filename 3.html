@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Learning Goal Tracker</title>
+</head>
+<body>
+
+<h2>Learning Goal Tracker</h2>
+
+Name:
+<input type="text" id="name"><br><br>
+
+Roll No:
+<input type="number" id="roll"><br><br>
+
+Study Hours:
+<input type="number" id="hours"><br><br>
+
+Target Technology:
+<input type="text" id="tech"><br><br>
+
+<button onclick="check()">Check Status</button>
+
+<h3 id="result"></h3>
+<p id="goal"></p>
+
+<script>
+
+function check()
+{
+    var roll=document.getElementById("roll").value;
+    var hours=document.getElementById("hours").value;
+
+    // Validation
+    if(roll=="" || hours=="")
+    {
+        alert("Fill all fields");
+        return;
+    }
+
+    // Personalized Rule
+    if(roll%10==4)
+        alert("Special Rule Applied");
+
+    // Function
+    document.getElementById("result").innerHTML=status(hours);
+
+    // Array + DOM
+    var goals=["Learn HTML","Learn CSS","Learn JavaScript"];
+    document.getElementById("goal").innerHTML=goals.join("<br>");
+}
+
+function status(hours)
+{
+    if(hours>=15)
+        return "Excellent Learning";
+    else if(hours>=8)
+        return "Good Progress";
+    else
+        return "Need More Practice";
+}
+
+</script>
+
+</body>
+</html>
